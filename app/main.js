@@ -10,7 +10,7 @@ angular
 
         $scope.selectUnit = function(unit, destRow, destCol) {
             if ($scope.selectedUnit) {
-                if (unit == $scope.selectedUnit || Game.move($scope.selectedUnit, destRow, destCol)) {
+                if (unit == $scope.selectedUnit || Game.move(1, $scope.selectedUnit, destRow, destCol)) {
                     $scope.selectedUnit.selected = false
                     $scope.selectedUnit = null
                 }
