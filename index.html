@@ -1,0 +1,27 @@
+<html ng-app="Main">
+    <head>
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/lodash/dist/lodash.min.js"></script>
+
+        <script src="app/main.js"></script>
+        <script src="app/models.js"></script>
+    </head>
+    <body ng-controller="MainController">
+        <div id="board">
+            <div ng-repeat="row in board track by $index" ng-init="rowIndex = $index">
+                <a
+                    class="unit"
+                    href="#"
+                    ng-repeat="unit in row track by $index"
+                    ng-init="unitIndex = $index"
+                    ng-class="{selected: unit.selected}"
+                    ng-model="unit"
+                    ng-click="selectUnit(unit, rowIndex, unitIndex)">
+                    {{ unit ? unit.name : 'e' }}
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
